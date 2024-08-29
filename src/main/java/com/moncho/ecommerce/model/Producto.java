@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -21,6 +22,9 @@ public class Producto {
 	private String imagen;
 	private Integer precio;
 	private Integer cantidad;
+	
+	@ManyToOne
+	private Usuario usuario;
 	
 public Producto() {
 	// TODO Auto-generated constructor stub
@@ -62,6 +66,19 @@ public Producto() {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
+	
+	
+	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 
 	@Override
 	public String toString() {

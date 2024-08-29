@@ -2,10 +2,12 @@ package com.moncho.ecommerce.model;
 
 import java.util.Date;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -20,6 +22,13 @@ public class DetalleOrden {
 	private Date fecha_creacion;
 	private Date fecha_recibida;
 	private double total;
+	
+	
+	@ManyToOne
+	private Orden orden;
+	
+	@ManyToOne
+	private Producto producto;
 	
 	public DetalleOrden() {
 		// TODO Auto-generated constructor stub
@@ -72,6 +81,24 @@ public class DetalleOrden {
 
 	public void setTotal(double total) {
 		this.total = total;
+	}
+
+	
+	
+	public Orden getOrden() {
+		return orden;
+	}
+
+	public void setOrden(Orden orden) {
+		this.orden = orden;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 	@Override
